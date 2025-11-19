@@ -35,7 +35,7 @@ cd "${WORK}" || exit 1
 
 # Cloning all the Necessary files
 if [ ! -d clang ]; then mkdir clang && curl -Lsq "${CLANG_URL}" -o clang.tgz && tar -xzf clang.tgz -C clang; fi
-if [ ! -d gcc ]; then mkdir gcc && curl -Lsq "${GCC_URL}" -o gcc.tgz && tar -xvf gcc.tar.xz -C gcc; fi
+if [ ! -d gcc ]; then mkdir gcc && curl -Lsq "${GCC_URL}" -o gcc.tar.xz && unxz gcc.tar.xz && tar -xvf gcc.tar -C gcc; fi
 # [ ! -d gcc ] && git clone --depth=1 "${GCC_URL}" -b "${GCC_BRANCH}" ./gcc
 [ ! -d "${KERNEL}" ] && git clone --depth=1 "${KERNEL_SOURCE}" -b "${KERNEL_BRANCH}" "${KERNEL}"
 
