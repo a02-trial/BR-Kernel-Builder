@@ -1,12 +1,16 @@
-name: polos
+name: Test Build Kernel
 
 on: 
   workflow_dispatch:
     inputs:
       DEVICE_NAME:
-        description: 'Ready'
+        description: 'Your device codename.'
         required: true
-        default: 'Ok'
+        default: 'a02'
+      ANDROID_VERSION:
+        description: 'Your android version.'
+        required: true
+        default: 'r'
 
 permissions:
   contents: write
@@ -16,22 +20,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@main- name: Start Building Kernel
+      uses: actions/checkout@main
+
+    - name: Start Building Kernel
       run: |
         export KBUILD_BUILD_USER="${{ github.actor }}"
         export KBUILD_BUILD_HOST="${{ github.event.inputs.DEVICE_NAME }}"
         ./build
-
     - name: Set Properties
       id: props
       run: |
         echo "date=$(TZ=Asia/Jakarta date +%Y%m%d-%I%M%p)" >> $GITHUB_OUTPUT
-
     - name: Compressed as Archive
       run: |
         cd /home/runner/work/myKernel/out/arch/arm/boot || exit 1
         zip -r9 "${{ github.event.inputs.DEVICE_NAME }}-${{ steps.props.outputs.date }}.zip" ./* -x "dts" -x "dts/*"
-
     - name: Release
       uses: ncipollo/release-action@v1.12.0
       with:
@@ -47,7 +50,6 @@ jobs:
           ## Notes
             - Extract ${{ github.event.inputs.DEVICE_NAME }}-${{ steps.props.outputs.date }}.zip, look your newly-compiled kernel inside.
             - Include building logs.
-
     - name: Link of Release
       run: |
         echo "Enjoy your Newly Built Kernel"
