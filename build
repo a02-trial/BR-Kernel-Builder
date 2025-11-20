@@ -8,15 +8,18 @@ KERNEL_BRANCH="kernelku"
 KERNEL_DEFCONFIG="a02_defconfig"
 
 # Prebuilt Clang Toolchain (AOSP)
-CLANG_URL="https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone/-/archive/18/android_prebuilts_clang-standalone-18.tar.gz"
+# CLANG_URL="https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone/-/archive/18/android_prebuilts_clang-standalone-18.tar.gz"
+CLANG_URL="https://github.com/kdrag0n/proton-clang/archive/refs/heads/master.zip"
 
 # Prebuilt GCC Utilities (AOSP)
-GCC_URL="https://gitgud.io/aosp/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/-/archive/simpleperf-release/arm-linux-androideabi-4.9-simpleperf-release.tar.gz"
+GCC_URL="https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9/archive/refs/heads/lineage-19.1.zip"
 # GCC_BRANCH="master-kernel-build-2021"
 
 # Setup make Command
 make_fun() {
-	make O=out "$@"
+	make O=out ARCH=arm CC=clang HOSTCC=clang \
+		CLANG_TRIPLE=arm-linux-gnueabi- \
+		CROSS_COMPILE=arm-linux-androidkernel- "$@"
 }
 
 # Work Path
@@ -33,8 +36,10 @@ mkdir -p "${WORK}"
 cd "${WORK}" || exit 1
 
 # Cloning all the Necessary files
-if [ ! -d clang ]; then mkdir clang && curl -Lsq "${CLANG_URL}" -o clang.tgz && tar -xzf clang.tgz -C clang; fi
-if [ ! -d gcc ]; then mkdir gcc && curl -Lsq "${GCC_URL}" -o gcc.tgz && tar -xzf gcc.tgz -C gcc; fi
+# if [ ! -d clang ]; then mkdir clang && curl -Lsq "${CLANG_URL}" -o clang.tgz && tar -xzf clang.tgz -C clang; fi 		# untar gz
+# if [ ! -d gcc ]; then mkdir gcc && curl -Lsq "${GCC_URL}" -o gcc.tgz && tar -xzf gcc.tgz -C gcc; fi
+if [ ! -d clang ]; then mkdir clang && curl -Lsq "${CLANG_URL}" -o clang.zip && unzip -o clang.zip -C clang; fi
+if [ ! -d gcc ]; then mkdir gcc && curl -Lsq "${GCC_URL}" -o gcc.zip && unzip -o gcc.zip -C gcc; fi
 # if [ ! -d gcc ]; then mkdir gcc && curl -Lsq "${GCC_URL}" -o gcc.tar.xz && unxz gcc.tar.xz && tar -xvf gcc.tar -C gcc; fi
 # [ ! -d gcc ] && git clone --depth=1 "${GCC_URL}" -b "${GCC_BRANCH}" ./gcc
 [ ! -d "${KERNEL}" ] && git clone --depth=1 "${KERNEL_SOURCE}" -b "${KERNEL_BRANCH}" "${KERNEL}"
