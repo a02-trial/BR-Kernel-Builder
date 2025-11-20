@@ -9,10 +9,10 @@ KERNEL_DEFCONFIG="a02_defconfig"
 
 # Prebuilt Clang Toolchain (AOSP)
 # CLANG_URL="https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone/-/archive/18/android_prebuilts_clang-standalone-18.tar.gz"
-CLANG_URL="https://github.com/kdrag0n/proton-clang/archive/refs/heads/master.zip"
+CLANG_URL="https://github.com/kdrag0n/proton-clang/archive/refs/heads/master.tar.gz"
 
 # Prebuilt GCC Utilities (AOSP)
-GCC_URL="https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9/archive/refs/heads/lineage-19.1.zip"
+GCC_URL="https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9/archive/refs/heads/lineage-19.1.tar.gz"
 # GCC_BRANCH="master-kernel-build-2021"
 
 # Setup make Command
@@ -36,10 +36,8 @@ mkdir -p "${WORK}"
 cd "${WORK}" || exit 1
 
 # Cloning all the Necessary files
-# if [ ! -d clang ]; then mkdir clang && curl -Lsq "${CLANG_URL}" -o clang.tgz && tar -xzf clang.tgz -C clang; fi 		# untar gz
-# if [ ! -d gcc ]; then mkdir gcc && curl -Lsq "${GCC_URL}" -o gcc.tgz && tar -xzf gcc.tgz -C gcc; fi
-if [ ! -d clang ]; then mkdir clang && curl -Lsq "${CLANG_URL}" unzip clang.zip clang; fi
-if [ ! -d gcc ]; then mkdir gcc && curl -Lsq "${GCC_URL}" unzip gcc.zip gcc; fi
+if [ ! -d clang ]; then mkdir clang && curl -Lsq "${CLANG_URL}" -o clang.tgz && tar -xzf clang.tgz -C clang; fi 		# untar gz
+if [ ! -d gcc ]; then mkdir gcc && curl -Lsq "${GCC_URL}" -o gcc.tgz && tar -xzf gcc.tgz -C gcc; fi
 # if [ ! -d gcc ]; then mkdir gcc && curl -Lsq "${GCC_URL}" -o gcc.tar.xz && unxz gcc.tar.xz && tar -xvf gcc.tar -C gcc; fi
 # [ ! -d gcc ] && git clone --depth=1 "${GCC_URL}" -b "${GCC_BRANCH}" ./gcc
 [ ! -d "${KERNEL}" ] && git clone --depth=1 "${KERNEL_SOURCE}" -b "${KERNEL_BRANCH}" "${KERNEL}"
