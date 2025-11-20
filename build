@@ -3,12 +3,12 @@
 set -e -x
 
 # Kernel Source
-KERNEL_SOURCE="https://github.com/a02-trial/a022f_kernel"
-KERNEL_BRANCH="physwizz"
+KERNEL_SOURCE="https://github.com/a02-trial/BR_kernel_a02"
+KERNEL_BRANCH="kernelku"
 KERNEL_DEFCONFIG="a02_defconfig"
 
 # Prebuilt Clang Toolchain (AOSP)
-# CLANG_URL="https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone/-/archive/18/android_prebuilts_clang-standalone-18.tar.gz"
+CLANG_URL="https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone/-/archive/18/android_prebuilts_clang-standalone-18.tar.gz"
 
 # Prebuilt GCC Utilities (AOSP)
 GCC_URL="https://gitgud.io/aosp/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/-/archive/simpleperf-release/arm-linux-androideabi-4.9-simpleperf-release.tar.gz"
@@ -33,7 +33,7 @@ mkdir -p "${WORK}"
 cd "${WORK}" || exit 1
 
 # Cloning all the Necessary files
-# if [ ! -d clang ]; then mkdir clang && curl -Lsq "${CLANG_URL}" -o clang.tgz && tar -xzf clang.tgz -C clang; fi
+if [ ! -d clang ]; then mkdir clang && curl -Lsq "${CLANG_URL}" -o clang.tgz && tar -xzf clang.tgz -C clang; fi
 if [ ! -d gcc ]; then mkdir gcc && curl -Lsq "${GCC_URL}" -o gcc.tgz && tar -xzf gcc.tgz -C gcc; fi
 # if [ ! -d gcc ]; then mkdir gcc && curl -Lsq "${GCC_URL}" -o gcc.tar.xz && unxz gcc.tar.xz && tar -xvf gcc.tar -C gcc; fi
 # [ ! -d gcc ] && git clone --depth=1 "${GCC_URL}" -b "${GCC_BRANCH}" ./gcc
@@ -41,8 +41,8 @@ if [ ! -d gcc ]; then mkdir gcc && curl -Lsq "${GCC_URL}" -o gcc.tgz && tar -xzf
 
 # Setting Toolchain Path
 # PATH="${KERNEL_SOURCE}/${KERNEL_BRANCH}/toolchain/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9-lineage-19.1/bin"
-# PATH="${WORK}/clang/bin:${WORK}/gcc/bin:/bin"
-PATH="${WORK}/gcc/bin:/bin"
+PATH="${WORK}/clang/bin:${WORK}/gcc/bin:/bin"
+# PATH="${WORK}/gcc/bin:/bin"
 
 # Enter Kernel root directory
 cd "${KERNEL_SRC}" || exit 1
