@@ -1,4 +1,4 @@
-name: Kernel_Builder
+name: Fast_Builder
 
 on: 
   workflow_dispatch:
