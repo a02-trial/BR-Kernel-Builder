@@ -18,15 +18,15 @@ CLANG_URL="https://github.com/crdroidandroid/android_prebuilts_clang_host_linux-
 CLANG_BRANCH="11.0"
 
 # Prebuilt GCC Utilities (AOSP)
-# GCC_URL="https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9.git"
-# GCC_BRANCH="lineage-19.1"
-GCC_URL=="https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/+archive/refs/tags/android-mainline-11.0.0_r45.tar.gz"
+GCC_URL="https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9.git"
+GCC_BRANCH="lineage-19.1"
+# GCC_URL=="https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/+archive/refs/tags/android-mainline-11.0.0_r45.tar.gz"
 
 # Setup make Command
 make_fun() {
 	make O=out ARCH=arm CC=clang HOSTCC=clang \
 		CLANG_TRIPLE=arm-linux-gnueabi- \
-		CROSS_COMPILE=arm-linux-androideabi- "$@"
+		CROSS_COMPILE=arm-linux-androidkernel- "$@"
 }
 
 # Work Path
@@ -44,10 +44,10 @@ cd "${WORK}" || exit 1
 
 # Cloning all the Necessary files
 # if [ ! -d clang ]; then mkdir clang && curl -Lsq "${CLANG_URL}" -o clang.tgz && tar -xzf clang.tgz -C clang; fi 		# untar gz
-if [ ! -d gcc ]; then mkdir gcc && curl -Lsq "${GCC_URL}" -o gcc.tgz && tar -xzf gcc.tgz -C gcc; fi
+# if [ ! -d gcc ]; then mkdir gcc && curl -Lsq "${GCC_URL}" -o gcc.tgz && tar -xzf gcc.tgz -C gcc; fi
 # if [ ! -d gcc ]; then mkdir gcc && curl -Lsq "${GCC_URL}" -o gcc.tar.xz && unxz gcc.tar.xz && tar -xvf gcc.tar -C gcc; fi
 [ ! -d clang ] && git clone --depth=1 "${CLANG_URL}" -b "${CLANG_BRANCH}" ./clang
-#[ ! -d gcc ] && git clone --depth=1 "${GCC_URL}" -b "${GCC_BRANCH}" ./gcc
+[ ! -d gcc ] && git clone --depth=1 "${GCC_URL}" -b "${GCC_BRANCH}" ./gcc
 [ ! -d "${KERNEL}" ] && git clone --depth=1 "${KERNEL_SOURCE}" -b "${KERNEL_BRANCH}" "${KERNEL}"
 
 # Setting Toolchain Path
