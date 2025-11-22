@@ -12,7 +12,7 @@ KERNEL_DEFCONFIG="a02_defconfig"
 # CLANG_URL="https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone/-/archive/18/android_prebuilts_clang-standalone-12.tar.gz"
 # CLANG_URL="https://github.com/LineageOS/android_prebuilts_clang_kernel_linux-x86_clang-r416183b.git"
 # CLANG_BRANCH="lineage-20.0"
-CLANG_URL="https://github.com/crdroidandroid/android_prebuilts_clang_host_linux-x86
+CLANG_URL="https://github.com/crdroidandroid/android_prebuilts_clang_host_linux-x86"
 CLANG_BRANCH="11.0"
 
 # Prebuilt GCC Utilities (AOSP)
