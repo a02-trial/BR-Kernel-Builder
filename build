@@ -3,7 +3,7 @@
 set -e -x
 
 # Kernel Source
-KERNEL_SOURCE="https://github.com/a02-trial/GCC"
+KERNEL_SOURCE="https://github.com/a02-trial/kernel_samsung_a02"
 KERNEL_BRANCH="kernel"
 KERNEL_DEFCONFIG="a02_defconfig"
 
