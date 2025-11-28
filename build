@@ -13,8 +13,8 @@ KERNEL_DEFCONFIG="a02_defconfig"
 # CLANG_URL="https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/android12L-s1-release/clang-r416183b1.tar.gz"
 # CLANG_URL="https://github.com/LineageOS/android_prebuilts_clang_kernel_linux-x86_clang-r416183b.git"
 # CLANG_BRANCH="lineage-20.0"
-CLANG_URL="https://github.com/AOSPA/android_prebuilts_clang_host_linux-x86"
-CLANG_BRANCH="ruby"
+CLANG_URL="https://github.com/Kry9toN/clang"
+CLANG_BRANCH="dev/13.0"
 
 # Prebuilt GCC Utilities (AOSP)
 # GCC_URL="https://github.com/AOSPA/android_prebuilts_gcc_linux-x86_arm_arm-eabi"
