@@ -26,7 +26,7 @@ GCC_BRANCH="topaz-12"
 # Setup make Command
 make_fun() {
 	make O=out ARCH=arm CC=clang HOSTCC=clang \
-		CLANG_TRIPLE=arm-linux-gnueabi- \
+		CLANG_TRIPLE=arm-eabi- \
 		CROSS_COMPILE=arm-linux-androidkernel- "$@"
 }
 
