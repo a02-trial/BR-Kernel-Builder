@@ -4,7 +4,7 @@ set -e -x
 
 # Kernel Source
 KERNEL_SOURCE="https://github.com/a02-trial/a022f_kernel"
-KERNEL_BRANCH="ori"
+KERNEL_BRANCH="master"
 KERNEL_DEFCONFIG="a02_defconfig"
 
 # Prebuilt Clang Toolchain (AOSP)
