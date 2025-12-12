@@ -1,0 +1,32 @@
+!<thin>
+//                                              600       `
+tsp_novatek/nt36525_a02_csot.bin.gen.o/
+tsp_ilitek/ili9881x_a32x.hex.gen.o/
+tsp_ilitek/ili7806s_a32x.hex.gen.o/
+tsp_ilitek/ili9881x_a02.hex.gen.o/
+tsp_ilitek/ili9881x_a02_boe.hex.gen.o/
+tsp_ilitek/ili9882q_a02_boe.hex.gen.o/
+tsp_novatek/nt36525_a32_sharp.bin.gen.o/
+tsp_novatek/nt36525_a32_mp_sharp.bin.gen.o/
+tsp_novatek/nt36675_a32_ltps.bin.gen.o/
+tsp_novatek/nt36675_a32_mp_ltps.bin.gen.o/
+tsp_novatek/nt36525_a02_mp_csot.bin.gen.o/
+tsp_novatek/nt36575_a02_ltps.bin.gen.o/
+tsp_novatek/nt36575_a02_mp_ltps.bin.gen.o/
+tsp_novatek/nt36525_a02_boe.bin.gen.o/
+tsp_novatek/nt36525_a02_mp_boe.bin.gen.o/
+/0              0           0     0     644     119840    `
+/40             0           0     0     644     359808    `
+/76             0           0     0     644     359808    `
+/112            0           0     0     644     359804    `
+/147            0           0     0     644     359816    `
+/186            0           0     0     644     359816    `
+/225            0           0     0     644     119844    `
+/266            0           0     0     644     119852    `
+/310            0           0     0     644     140320    `
+/350            0           0     0     644     140328    `
+/393            0           0     0     644     119848    `
+/436            0           0     0     644     140320    `
+/476            0           0     0     644     140328    `
+/519            0           0     0     644     119836    `
+/558            0           0     0     644     119844    `

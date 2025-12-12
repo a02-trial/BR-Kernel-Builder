@@ -1,0 +1,12 @@
+!<thin>
+//                                              72        `
+devres.o/
+gpiolib.o/
+gpiolib-legacy.o/
+gpiolib-devprop.o/
+gpiolib-of.o/
+/0              0           0     0     644     102304    `
+/10             0           0     0     644     348504    `
+/21             0           0     0     644     85548     `
+/39             0           0     0     644     81060     `
+/58             0           0     0     644     102640    `

@@ -1,0 +1,1 @@
+cmd_drivers/hwmon/sec_thermistor/built-in.o :=   rm -f drivers/hwmon/sec_thermistor/built-in.o; arm-linux-androidkernel-ar rcSTPD drivers/hwmon/sec_thermistor/built-in.o drivers/hwmon/sec_thermistor/sec_thermistor.o 
