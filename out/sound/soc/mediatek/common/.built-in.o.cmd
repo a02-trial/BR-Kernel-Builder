@@ -1,1 +1,0 @@
-cmd_sound/soc/mediatek/common/built-in.o :=   rm -f sound/soc/mediatek/common/built-in.o; arm-linux-androidkernel-ar rcSTPD sound/soc/mediatek/common/built-in.o sound/soc/mediatek/common/mtk-btcvsd.o 
