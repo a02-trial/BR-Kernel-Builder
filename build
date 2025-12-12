@@ -3,20 +3,10 @@
 set -e -x
 
 cd ${HOME}
-wget https://github.com/a02-trial/BR_kernel_a02/archive/refs/heads/ori.zip
-unzip ori.zip
-mv ori kernel
-mkdir clang
-cd clang
-wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/android11-qpr3-s1-release/clang-r383902b1.tar.gz
-tar xzvf clang-r383902b1.tar.gz
-rm clang-r383902b1.tar.gz
-cd ${HOME}
-wget https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9/archive/refs/heads/lineage-19.1.zip
-unzip lineage-19.1.zip
-mv lineage-19.1 gcc
+ls
+echo $PATH
 export PATH="${WORK}/clang/bin:${WORK}/gcc/bin:${PATH}"
-cd kernel
+echo $PATH
 export ARCH=arm
 export CROSS_COMPILE=arm-linux-androideabi-
 export CC=clang
