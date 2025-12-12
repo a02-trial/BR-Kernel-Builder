@@ -3,9 +3,11 @@
 set -e -x
 
 cd ${HOME}
+git clone https://github.com/a02-trial/BR-Kernel-Builder -b master
+cd BR-Kernel-Builder
 ls
 echo $PATH
-export PATH="${WORK}/clang/bin:${WORK}/gcc/bin:${PATH}"
+export PATH="${PWD}/toolchain/clang/bin:${PWD}/toolchain/gcc/bin:${PATH}"
 echo $PATH
 export ARCH=arm
 export CROSS_COMPILE=arm-linux-androideabi-
