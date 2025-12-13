@@ -20,6 +20,7 @@ jobs:
     - name: Download the file
       run: |
         git lfs install
+        git lfs push --all origin
         git lfs track "*.tar.gz"
         git add .gitattributes
         curl -O "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master-kernel-build-2021/clang-r383902.tar.gz"
