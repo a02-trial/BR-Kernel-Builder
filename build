@@ -3,15 +3,12 @@
 set -e -x
 
 cd ${GITHUB_WORKSPACE}
-ls
-echo $PATH
 export PATH="${PWD}/toolchain/clang/bin:${PWD}/toolchain/gcc/bin:${PATH}"
-echo $PATH
 export ARCH=arm
-export CROSS_COMPILE=arm-linux-androideabi-
 export CC=clang
 export HOSTCC=clang
 export CLANG_TRIPLE=arm-linux-gnueabi-
+export CROSS_COMPILE=arm-linux-androideabi-
 rm -rf out
 mkdir -p out
 make O=out ARCH=arm CC=clang HOSTCC=clang CLANG_TRIPLE=arm-linux-gnueabi- CROSS_COMPILE=arm-linux-androidkernel- clean
