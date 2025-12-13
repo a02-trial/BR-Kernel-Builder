@@ -6,7 +6,7 @@ on:
       DEVICE_NAME:
         description: 'Ready'
         required: true
-        default: 'Ok'
+        default: 'SM-A022F'
 
 permissions:
   contents: write
@@ -15,7 +15,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Start Building Kernel
+    - name: Checkout
+      uses: actions/checkout@main
+
+    - name: Start Building Rookie Kernel
       run: |
         export KBUILD_BUILD_USER="${{ github.actor }}"
         export KBUILD_BUILD_HOST="${{ github.event.inputs.DEVICE_NAME }}"
@@ -36,7 +39,7 @@ jobs:
         artifacts: |
           ${HOME}/${GITHUB_WORKSPACE}/out/arch/arm/boot/*.zip
           ${HOME}/${GITHUB_WORKSPACE}/build.log
-        name: Compiled Kernel for ${{ github.event.inputs.DEVICE_NAME }} - ${{ steps.props.outputs.date }}
+        name: Compiled Rookie Kernel for ${{ github.event.inputs.DEVICE_NAME }} - ${{ steps.props.outputs.date }}
         draft: false
         prerelease: false
         tag: ${{ github.run_id }}-${{ steps.props.outputs.date }}
