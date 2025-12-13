@@ -8,8 +8,6 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Cek dulu bang
-        uses: actions/checkout@v4
       - name: Permisi pak
         run: chmod +x unduh.sh
       - name: Tarik mang
