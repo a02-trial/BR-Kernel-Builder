@@ -1,21 +1,14 @@
-name: Go
+name: Go Script
 
-on: 
-  workflow_dispatch:
-    inputs:
-      GO:
-
-permissions:
-  contents: write
+on: [push]
 
 jobs:
-  build:
+  run-script-file-job:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: ./build
     steps:
-      - name: Link of Release
-          echo "Enjoy your Newly Built Kernel"
-          echo "https://github.com/${GITHUB_REPOSITORY}"
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+      - name: Make script executable (if needed)
+        run: chmod +x build
+      - name: Run the bash script file
+        run: ./build
