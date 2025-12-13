@@ -9,6 +9,8 @@ on:
 jobs:
   download-and-commit:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
     - name: Checkout repository
@@ -23,8 +25,8 @@ jobs:
 
     - name: Configure Git
       run: |
-        git config user.name "a02-trial"
-        git config user.email "cipin23@gmail.com"
+        git config user.name "github-actions[bot]"
+        git config user.email "actions@github.com"
 
     - name: Add and Commit file
       run: |
