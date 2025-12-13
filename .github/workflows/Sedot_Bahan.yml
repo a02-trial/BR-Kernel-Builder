@@ -1,0 +1,16 @@
+name: Sedot
+
+on: workflow_dispatch
+
+jobs:
+  run-script-file-job:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Cek dulu bang
+        uses: actions/checkout@v4
+      - name: Permisi pak
+        run: chmod +x unduh.sh
+      - name: Tarik mang
+        run: ./unduh.sh
