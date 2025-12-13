@@ -10,4 +10,4 @@ cd toolchain
 mkdir gcc2
 git clone --depth=1 "${GCC}" .gcc2
 cd -
-zip -r net_unix.zip net/unix
+tar -czvf net_unix.tar.gz net/unix/
