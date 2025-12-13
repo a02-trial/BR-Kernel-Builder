@@ -23,7 +23,7 @@ jobs:
         git lfs push --all origin
         git lfs track "*.tar.gz"
         git add .gitattributes
-        curl -O "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master-kernel-build-2021/clang-r383902.tar.gz"
+        curl -O "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/+archive/refs/heads/android12L-release.tar.gz"
 
     - name: Configure Git
       run: |
@@ -32,6 +32,6 @@ jobs:
 
     - name: Add and Commit file
       run: |
-        git add clang-r383902.tar.gz
-        git commit -m "Add clang-r383902.tar.gz"
+        git add android12L-release.tar.gz
+        git commit -m "Add android12L-release.tar.gz"
         git push
