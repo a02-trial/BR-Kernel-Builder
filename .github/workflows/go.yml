@@ -1,0 +1,24 @@
+name: Go
+
+on: 
+  workflow_dispatch:
+    inputs:
+      DEVICE_NAME:
+        description: 'Ready??'
+        required: true
+        default: 'OK'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./build
+    steps:
+      - name: Link of Release
+          echo "Enjoy your Newly Built Kernel"
+          echo "https://github.com/${GITHUB_REPOSITORY}"
