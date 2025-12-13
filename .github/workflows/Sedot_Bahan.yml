@@ -23,8 +23,8 @@ jobs:
 
     - name: Configure Git
       run: |
-        git config user.name "GitHub Actions Bot"
-        git config user.email "actions@github.com"
+        git config user.name "a02-trial"
+        git config user.email "cipin23@gmail.com"
 
     - name: Add and Commit file
       run: |
