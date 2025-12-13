@@ -33,4 +33,4 @@ jobs:
       run: |
         git add clang-r383902.tar.gz
         git commit -m "Add clang-r383902.tar.gz"
-        git push origin master
+        git push
