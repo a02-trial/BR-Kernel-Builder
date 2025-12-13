@@ -5,6 +5,8 @@ on: workflow_dispatch
 jobs:
   run-script-file-job:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository code
         uses: actions/checkout@v4
@@ -12,3 +14,24 @@ jobs:
         run: chmod +x build
       - name: Run the bash script file
         run: ./build
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # The upload_url comes from the previous create_release step
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./boot.img-kernel
+          asset_name: boot.img-kernel
