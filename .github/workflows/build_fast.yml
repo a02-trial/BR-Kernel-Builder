@@ -46,6 +46,9 @@ jobs:
         cd tempe
         zip -r9 -y "${{ github.event.inputs.DEVICE_NAME }}-${{ steps.props.outputs.date }}.zip" .
         mv *.zip /home/runner/work/myKernel
+        cd /home/runner/work/myKernel
+        rm -rf tempe
+        rm -rf out
 
     - name: Release
       uses: ncipollo/release-action@v1.12.0
