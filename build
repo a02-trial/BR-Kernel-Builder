@@ -71,4 +71,7 @@ make_fun clean && make_fun mrproper
 make_fun "${KERNEL_DEFCONFIG}"
 make_fun -j"$(nproc --all)"
 make_fun dtbs 
-make_fun modules 2>&1 | tee build.log 
+make_fun modules 2>&1 | tee build.log
+
+cd create-dtbo-img
+./make-dtbo.sh
