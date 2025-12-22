@@ -38,7 +38,6 @@ jobs:
 
     - name: Compressed as Archive
       run: |
-        rm *.zip *.log
         cd /home/runner/work/myKernel
         mkdir -p tempe
         ls
