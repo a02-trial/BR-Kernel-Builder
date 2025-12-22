@@ -1,6 +1,6 @@
 name: delete-workflow-runs-action
 description: GitHub Action to delete workflow runs
-author: rdbckp <ardibackup@gmail.com>
+author: a02-trial <cipin23@gmail.com>
 
 branding:
   icon: x
