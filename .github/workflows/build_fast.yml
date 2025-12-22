@@ -40,7 +40,10 @@ jobs:
       run: |
         cd /home/runner/work/myKernel
         mkdir -p tempe
-        ls
+        cd out/arch/arm
+        ls && cd /home/runner/work/myKernel
+        cd out/arch/arm/boot
+        ls && cd /home/runner/work/myKernel
         cp -r out/arch/arm/boot tempe
         cd tempe
         zip -r9 -y "${{ github.event.inputs.DEVICE_NAME }}-${{ steps.props.outputs.date }}.zip" .
