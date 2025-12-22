@@ -21,4 +21,6 @@ jobs:
         chmod +x -R scripts
         
     - name: Delete
-      uses: ./     
+      uses: ./
+      with:
+        keep: 1
