@@ -73,5 +73,6 @@ make_fun -j"$(nproc --all)"
 make_fun dtbs 
 make_fun modules 2>&1 | tee build.log
 
+chmod +x -R create-dtbo-img
 cd create-dtbo-img
 ./make-dtbo.sh
