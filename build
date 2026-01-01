@@ -69,9 +69,7 @@ cd "${KERNEL_SRC}" || exit 1
 # Start Compiling Kernel
 make_fun clean && make_fun mrproper
 make_fun "${KERNEL_DEFCONFIG}"
-make_fun -j"$(nproc --all)"
-make_fun dtbs 
-make_fun modules 2>&1 | tee build.log
+make_fun -j"$(nproc --all)" 2>&1 | tee build.log
 
 chmod +x -R create-dtbo-img
 cd create-dtbo-img
