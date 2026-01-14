@@ -3,8 +3,8 @@
 set -e -x
 
 # Kernel Source
-KERNEL_SOURCE="https://github.com/a02-trial/toolchain"
-KERNEL_BRANCH="kernel"
+KERNEL_SOURCE="https://github.com/a02-trial/a02kernel"
+KERNEL_BRANCH="main"
 KERNEL_DEFCONFIG="a02_defconfig"
 
 # Prebuilt Clang Toolchain (AOSP)
